@@ -1,4 +1,5 @@
 import React from 'react';
+import './VotingBox.scss'
 
 const VotingBox = (props) => {
     return ( 
