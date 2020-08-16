@@ -44,7 +44,7 @@ function App() {
      
     </div>
   );}else{
-    return <h1>Cargando...</h1>
+    return <h1 className="white">Loading...</h1>
   }
 }
 export default App;

@@ -8,12 +8,12 @@ const VotingBox = (props) => {
 
     return (
         <li className="voting-box">
-            <form method="put" action="" style={{ backgroundImage: "url(" + props.character.image + ")" }}>
+            <form style={{ backgroundImage: "url(" + props.character.image + ")" }}>
                 <div className="voting-box__title-container">
                     <span className={"voting-box__summary " + ((props.character.likes > props.character.dislikes) ? "like" : "dislike")}>
                         <img src="https://firebasestorage.googleapis.com/v0/b/juli-v-zemoga-app.appspot.com/o/like.svg?alt=media&token=89fdc956-4def-4cba-a24f-9f91e1d579cd" alt="" />
                     </span>
-                    <h2>{props.character.name}</h2>
+                    <h1>{props.character.name}</h1>
                 </div>
 
                 <div className="voting-box__other-info-container">
@@ -32,7 +32,8 @@ const VotingBox = (props) => {
                             <img src="https://firebasestorage.googleapis.com/v0/b/juli-v-zemoga-app.appspot.com/o/like.svg?alt=media&token=89fdc956-4def-4cba-a24f-9f91e1d579cd" alt="" />
                             <input id="dislike" type="radio" name="opinion" value="Dislike" />
                         </label>
-                        <button className="small" type="submit" value="Vote now">Vote Now</button>
+                        <button onClick={(e)=>{e.preventDefault();
+                            console.log("hola")}} className="small" value="Vote now">Vote Now</button>
                     </div>
                 </div>
                 <div className="votingbox__percentages-container">
