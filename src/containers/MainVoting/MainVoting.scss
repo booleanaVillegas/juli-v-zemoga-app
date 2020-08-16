@@ -1,0 +1,97 @@
+@import "../../App.scss";
+
+
+.hero {
+    @include size(100%, 100vh);
+    display: flex;
+    padding: $paddingsize $paddingsize*3;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #111;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/juli-v-zemoga-app.appspot.com/o/pope.jpg?alt=media&token=553cee7d-1a69-430f-9339-960f8fd964a2");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  
+    &:before {
+      content: " ";
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 0;
+      @include size(100vw, 200px);
+      background: linear-gradient(0deg,rgba($color: #222, $alpha: 0),rgba($color: #222, $alpha: 0.9));
+  }
+    form {
+      @include size(50%, 70%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateY(10%);
+  
+      .info-container{
+      padding: $paddingsize;
+      @include size(100%, 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background-color: rgba($color: #222, $alpha: 0.5);
+      backdrop-filter: blur(15px);
+      
+      label{
+        position: relative;
+        font-weight: 700;
+        font-size: 22px;
+      }
+      label:before{
+        content: "";
+        display: flex;
+        position: relative;
+        @include size(100%, 32px);
+      }
+      }
+  
+     
+      input{
+        
+        @include size($paddingsize*2, $paddingsize*2);
+      opacity: 0;
+        cursor: pointer;
+        position: absolute;
+        &:focus{
+          appearance: none;
+          opacity: 1;
+          background-color: transparent;
+          border: solid white 2px;
+        }
+  
+      }
+      
+      .like-dislike-containter{
+        display: flex;
+        flex-direction: row;
+        label{
+          @include size(50%,$paddingsize*2);
+          display: flex;
+          justify-content: center;
+          img{
+            height: 100%;
+            padding: 25px;
+            object-fit: contain; 
+          }
+          &.like{
+            background-color: rgba($color: teal, $alpha: 0.8);
+            
+          }
+          &.dislike{
+            background-color: rgba($color: orange, $alpha: 0.8);
+            img{
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+    z-index: 0;
+  }

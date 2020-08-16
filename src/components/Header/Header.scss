@@ -1,0 +1,63 @@
+@import "../../App.scss";
+
+header {
+
+  
+    padding: 0px 40*3px;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @include size(100%,60px);
+    top: $paddingsize;
+  
+    span {
+      @include size(40%,100%);
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  
+    nav {
+      @include size(60%,100%);
+      @include flex-center-everything();
+      flex-direction: row;
+  
+  
+      ul {
+        list-style-type: none;
+        width: 100%;
+        display: flex;
+        direction: row;
+        justify-content: space-around;
+  
+        li {
+          width: 100%;
+          text-align: right;
+        }
+  
+        .nav__link {
+          font-weight: 400 !important;
+          font-size: 16px !important;
+          text-decoration: none !important;
+          color: white !important;
+          transition: 0.5s;
+        }
+  
+        .nav__link:hover {
+          font-weight: 700 !important;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+.header__logo {
+    font-weight: 700 !important;
+    font-size: 36px !important;
+    text-decoration: none !important;
+    color: white !important;
+  }
