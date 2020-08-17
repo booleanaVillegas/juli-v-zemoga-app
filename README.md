@@ -6,11 +6,11 @@ Open [https://juli-v-zemoga-app.web.app/](https://juli-v-zemoga-app.web.app/) to
 # About this app
 
 ## ReactJs;
--This app was developed in the library reactJs with the help of "create-react-app" command.
--It implements Hooks API to set State inside components. 
--It uses the principles of atomic design to keep it scaleable
--The src/containers directory includes de main two sections in the app
--The src/components directory includes the smaller components
+- This app was developed in the library reactJs with the help of "create-react-app" command.
+- It implements Hooks API to set State inside components. 
+- It uses the principles of atomic design to keep it scaleable
+- The src/containers directory includes de main two sections in the app
+- The src/components directory includes the smaller components
 
 ## Scss: 
 - It was develop using Sass preprocessor
@@ -44,11 +44,14 @@ Open [https://juli-v-zemoga-app.web.app/](https://juli-v-zemoga-app.web.app/) to
 To run this proyect on your local environment, open this repo on your terminal. 
 In the project directory, you can run:
 
+1. install
 ### `npm install`
 Install the dependencies needed to run the application of your device
 
+2. Watch on browser
 ### `npm start`
 Opens the browser in the localhost:3000 to view the application. 
 
+3. Run unit tests
 ### `npm test`
 Runs the unit tests made with Jest
