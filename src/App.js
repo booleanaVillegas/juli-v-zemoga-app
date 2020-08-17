@@ -12,21 +12,31 @@ function useAppState() {
   const [appState, setAppState] = useState([]);
 
   useEffect(() => {
-    firebase.firestore().collection('celebritities').orderBy("dateAdded", "desc").onSnapshot((snapshot) => {
+    const unsuscribe = firebase
+    .firestore().collection('celebritities').orderBy("dateAdded", "desc").onSnapshot((snapshot) => {
       const newAppState = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data()
       }));
       isLoaded = true;
       setAppState(newAppState);
-      
     })
+
+    return ()=> unsuscribe();
   }, []);
 
   return appState
 }
 
 function App() {
+
+  const updateVotingBox = (docId, object) =>{
+    firebase.firestore()
+    .collection("celebritities")
+    .doc(object.id).update(object).then(()=>{
+      console.log("escrito");
+    });
+    }
 
   const appState = useAppState();
   let celebrities = appState;
@@ -39,9 +49,8 @@ function App() {
       <Header />
       <main>
         <MainVoting celebrity={celebrities[0] ? celebrities[0] : ""} />
-        <OtherVoting celebrities={cloneCelebs} />
+        <OtherVoting updateVotes={(id,obj)=>updateVotingBox(id,obj)} celebrities={cloneCelebs} />
       </main>
-     
     </div>
   );}else{
     return <h1 className="white">Loading...</h1>
