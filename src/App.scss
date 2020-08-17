@@ -1,7 +1,4 @@
-@import "./mixins";
-
-$maxScreenSize: 1280px;
-$paddingsize: 40px;
+@import "./tokens.scss";
 
 .App {
   @include size(100%, 100%);

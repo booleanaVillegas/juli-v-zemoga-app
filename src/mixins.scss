@@ -8,3 +8,18 @@
     width: $width;
     height: $height;
 }
+
+@mixin backgroundImgCover(){
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@mixin flexColumn(){
+    display: flex;
+      flex-direction: column;
+}
+@mixin flexRow(){
+    display: flex;
+      flex-direction: row;
+}
