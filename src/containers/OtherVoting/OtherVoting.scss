@@ -1,0 +1,83 @@
+@import "../../App.scss";
+
+.celebrities-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include size(100%,100%);
+    list-style-type: none;
+  
+    li {
+      width: 100%
+    }
+    li:nth-child(even){
+      padding-right: 0 !important;
+    }
+  }
+  
+  
+  .other-celebrities {
+    width: 100%;
+    background-color: white;
+    padding: $paddingsize $paddingsize*3;
+  }
+
+  .other-voting__title{
+    margin: $paddingsize 0;
+  }
+
+  .other-voting__msj{
+    display: flex;
+    flex-direction: row;
+    @include size(100%, 100%);
+    padding: $paddingsize;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(238, 238, 238);
+
+    p{
+      max-width: 500px;
+    }
+    button{
+      background-color: transparent;
+      border: none;
+      height: 42px;
+      width: 42px;
+      font-size: 24px;
+    }
+
+  }
+
+  .other-voting__msj__2{
+    display: flex;
+    flex-direction: row;
+    @include size(100%, 100%);
+    padding: 20px $paddingsize;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/juli-v-zemoga-app.appspot.com/o/footer.jpg?alt=media&token=46be1ea7-807a-4122-997a-e8b9f2ccac4c");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      z-index: 1;
+      *{
+        z-index: 2;
+      }
+    
+    
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #fff, $alpha: 0.8);
+      top: 0;
+      left: 0;
+      position: absolute;  
+      z-index: 0;
+    }
+    
+
+button{
+  padding: 10px $paddingsize;
+}
+  }

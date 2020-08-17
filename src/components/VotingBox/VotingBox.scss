@@ -1,0 +1,184 @@
+@import "./../../App.scss";
+
+.voting-box {
+  background-image: #ccc;
+  padding: 0 15px 15px 0;
+
+  form {
+    height: 500px;
+    color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    * {
+      z-index: 2;
+    }
+
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      display: block;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      @include size(100%, 100%);
+      background: linear-gradient(0deg, rgba($color: #000, $alpha: 0.7), rgba($color: #000, $alpha: 0.01));
+    }
+  }
+}
+
+.voting-box__summary {
+  position: relative;
+  display: flex;
+  width: $paddingsize - 5px;
+  height: $paddingsize - 5px;
+  background-color: pink;
+  margin-right: 5px;
+
+  &.like {
+    background-color: teal;
+
+  }
+
+  &.dislike {
+    background-color: orange;
+
+    img {
+      transform: rotate(180deg);
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 10px;
+  }
+}
+
+.voting-box__title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.voting-box__other-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 40%;
+  margin: 0 $paddingsize;
+}
+
+.voting-box__like-dislike-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 40%;
+  min-width: 180px;
+
+
+  input[type="radio"] {
+    @include size($paddingsize, $paddingsize);
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  input {
+    &:focus {
+      appearance: none;
+      opacity: 1;
+      border: solid white 2px;
+    }
+  }
+
+  label {
+    @include size($paddingsize, $paddingsize);
+    display: flex;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      width: 100%;
+      padding: 10px;
+      object-fit: contain;
+    }
+
+    &.like {
+      background-color: rgba($color: teal, $alpha: 0.8);
+
+    }
+
+    &.dislike {
+      background-color: rgba($color: orange, $alpha: 0.8);
+
+      img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.votingbox__percentages-container {
+  @include size(100%, $paddingsize);
+  margin-top: $paddingsize;
+  display: flex;
+  flex-direction: row;
+
+  span {
+    line-height: $paddingsize;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+
+    h3 {
+      position: relative;
+      margin: 0 10px;
+      font-weight: 400;
+    }
+  }
+
+  .like {
+    width: 50%;
+    height: 100%;
+    background-color: rgba($color: teal, $alpha: 0.8);
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+
+    justify-content: flex-start;
+  }
+
+  .dislike {
+    width: 50%;
+    min-width: $paddingsize;
+    height: 100%;
+    background-color: rgba($color: orange, $alpha: 0.8);
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-end;
+
+    img {
+      transform: rotate(180deg);
+    }
+  }
+}

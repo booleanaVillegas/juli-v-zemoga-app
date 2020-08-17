@@ -1,0 +1,17 @@
+@import "./mixins";
+
+$maxScreenSize: 1280px;
+$paddingsize: 40px;
+
+.App {
+  @include size(100%, 100%);
+  @include flex-center-everything();
+  flex-direction: column;
+  position: relative;
+}
+
+main {
+  width: 100%;
+  min-height: 200vh;
+}
+
