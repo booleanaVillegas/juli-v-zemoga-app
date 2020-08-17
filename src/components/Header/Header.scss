@@ -1,22 +1,23 @@
-@import "../../App.scss";
+@import "./../../tokens.scss";
 
 header {
-
-  
-    padding: 0px 40*3px;
+  @media only screen and (max-width: $sm) {
+      
+    padding: $paddingSize $paddingSize;
+    
+  }
+  @include flexRow();
+  @include size(100%,60px);
+    padding: 0px $paddingSize*3;
     position: absolute;
     z-index: 2;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    @include size(100%,60px);
-    top: $paddingsize;
-  
+    justify-content: space-between;  
+    top: $paddingSize;
     span {
+      @include flexRow();
       @include size(40%,100%);
       text-align: center;
-      display: flex;
-      flex-direction: row;
+      
       justify-content: flex-start;
       align-items: center;
     }
@@ -24,32 +25,33 @@ header {
     nav {
       @include size(60%,100%);
       @include flex-center-everything();
-      flex-direction: row;
-  
-  
+      @include flexRow();
+      
       ul {
+        @include flexRow();
         list-style-type: none;
         width: 100%;
-        display: flex;
-        direction: row;
         justify-content: space-around;
-  
+
+        @media only screen and (max-width: $sm) {
+          @include flexColumn();
+        }
         li {
           width: 100%;
           text-align: right;
-        }
-  
+        }  
         .nav__link {
           font-weight: 400 !important;
           font-size: 16px !important;
-          text-decoration: none !important;
+          text-decoration: none;
           color: white !important;
-          transition: 0.5s;
+          transition: 1s;
+
         }
-  
         .nav__link:hover {
-          font-weight: 700 !important;
-          text-decoration: underline;
+          background-color: rgba($color: #000000, $alpha: 0.5);
+          text-decoration: underline !important;
+          transform: scale(2) !important;
         }
       }
     }
