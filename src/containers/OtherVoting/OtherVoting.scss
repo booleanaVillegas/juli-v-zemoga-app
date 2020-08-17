@@ -25,6 +25,10 @@
   @media only screen and (max-width: $sm) {
     padding: $paddingSize $paddingSize;
   }
+  @media only screen and (min-width: $xl) {
+    max-width: $xl;
+  }
+
 }
 
 .other-voting__title {

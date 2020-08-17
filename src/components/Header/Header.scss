@@ -6,6 +6,10 @@ header {
     padding: $paddingSize $paddingSize;
     
   }
+  @media only screen and (min-width: $xl) {
+   max-width: $xl;
+    
+    }
   @include flexRow();
   @include size(100%,60px);
     padding: 0px $paddingSize*3;

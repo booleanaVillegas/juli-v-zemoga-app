@@ -6,15 +6,18 @@
     display: flex;
     padding: $paddingSize $paddingSize*3;
     align-items: center;
+    @media only screen and (min-width: $xxl) {
+      justify-content: center;
+      align-items: flex-end;
+      
+    }
     justify-content: flex-start;
     background-color: #111;
     background-image: url("https://firebasestorage.googleapis.com/v0/b/juli-v-zemoga-app.appspot.com/o/pope.jpg?alt=media&token=553cee7d-1a69-430f-9339-960f8fd964a2");
-    @media only screen and (max-width: $sm) {
-      
+    @media only screen and (max-width: $sm) {  
       padding: $paddingSize $paddingSize;
-      
     }
-  
+    
     
     &:before {
       content: " ";
@@ -29,6 +32,11 @@
       @media only screen and (max-width: $sm) {
         @include size(100%, 70%); 
       }
+      @media only screen and (min-width: $xxl) {
+       
+        padding-bottom: $paddingSize;;
+        @include size(700px, auto); 
+         }
       @include size(50%, 70%);
       color: white;
       @include flexColumn();
