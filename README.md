@@ -3,21 +3,25 @@
 The following proyect is developed for Zemoga. 
 Open [https://juli-v-zemoga-app.web.app/](https://juli-v-zemoga-app.web.app/) to view in full action and fully functioning on the browser.
 
+# Go to page
+
+[https://juli-v-zemoga-app.web.app/](https://juli-v-zemoga-app.web.app/)
+
 # About this app
 
 ## ReactJs;
 - This app was developed in the library reactJs with the help of "create-react-app" command.
 - It implements Hooks API to set State inside components. 
 - It uses the principles of atomic design to keep it scaleable
-- The src/containers directory includes de main two sections in the app
-- The src/components directory includes the smaller components
+- The src/containers directory includes the main two sections in the app
+- The src/components directory includes the smaller components such as header, fotter and voting-box
 
 ## Scss: 
-- It was develop using Sass preprocessor
+- It was developed using Sass preprocessor
 - The file tokens.scss as part of the atomic design principle includes general variables and mixins to use throught the whole app
 
 ## HTML:
-- The app was develop using semantic html to increase accessibility.
+- The app was developed using semantic html to increase accessibility.
 - Fully functional with the keyboard
 - Each voting box is a form with two radio inputs and a submit button.
 
@@ -27,7 +31,7 @@ Open [https://juli-v-zemoga-app.web.app/](https://juli-v-zemoga-app.web.app/) to
 - VotingBox component texted with over 90% coverage
 - Other components not tested since they didn't include much JS logic. 
 
-## ServerSide
+## Server Side (backend as a service)
 - Hosting, storage and databases are provided by firebase.
 
 ## What is it missing?
