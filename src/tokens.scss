@@ -1,7 +1,6 @@
 @import "./mixins";
 
-// Spacing
-$paddingSize: 40px;
+
 
 // Colors
 $colorLike: teal;
@@ -14,3 +13,7 @@ $md: 1024px;
 $sm: 850px;
 $xs: 768px;
 $maxScreenSize: 1280px;
+
+// Spacing
+$paddingSize: 40px;
+$paddingSizeSm: 15px;
