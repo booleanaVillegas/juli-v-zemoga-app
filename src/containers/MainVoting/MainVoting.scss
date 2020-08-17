@@ -3,13 +3,13 @@
 .hero {
     @include size(100%, 100vh);
     @include backgroundImgCover();
+    min-height: 600px;
     display: flex;
     padding: $paddingSize $paddingSize*3;
     align-items: center;
     @media only screen and (min-width: $xxl) {
       justify-content: center;
-      align-items: flex-end;
-      
+      align-items: flex-end;  
     }
     justify-content: flex-start;
     background-color: #111;
