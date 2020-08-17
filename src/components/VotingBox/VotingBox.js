@@ -1,62 +1,76 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './VotingBox.scss';
 
 
 
 const VotingBox = (props) => {
 
-    let likeSelected = false;
-    let btnSelected = false;
-    let voting= false;
-    let tempCharacter;
-    let btn;
+    const [votingBoxState, setVotingBoxState] = useState(
+        {
+            likeSelected: false,
+            btnSelected: false,
+            voting: false,
+            tempCharacter: {}
+        }
+    );
 
     let likePercentage = props.character.likes / (props.character.likes + props.character.dislikes) * 100;
     let dislikePercentage = props.character.dislikes / (props.character.likes + props.character.dislikes) * 100;
 
     const vote = (e) => {
+        e.persist();
         e.preventDefault();
-        if (voting) {
-            tempCharacter = props.character;
-            console.log(e);
-            likeSelected ? tempCharacter.likes++ : tempCharacter.dislikes++;
-            btn = e.target.parentElement.querySelector("button");
-            disapearLikeDislikeBtns();
-            props.updateVotes(tempCharacter.id, tempCharacter);
+        if (votingBoxState.voting) {
+            let character = props.character;
+            votingBoxState.likeSelected ? character.likes++ : character.dislikes++;
+            setVotingBoxState({
+                ...votingBoxState,
+                tempCharacter: character
+            });
+            disapearLikeDislikeBtns(e.target);
+            props.updateVotes(character.id, character);
         } else {
-            btn = e.target.parentElement.parentElement.querySelector("button");
-            voteAgain(e.target.querySelector("button"));
+            voteAgain(e.target);
         }
 
     }
 
-    const enableButton = (e) => {
-        voting = true;
-        btnSelected = true;
-        btn = e.target.parentElement.parentElement.querySelector("button");
-        btn.removeAttribute("disabled");
+    const enableButton = (e, likeSelectedValue) => {
+        e.persist();
+        e.target.parentElement.parentElement.querySelector("button").disabled = false;
+        setVotingBoxState({
+            ...votingBoxState,
+            voting : true,
+            btnSelected: true,
+            likeSelected: likeSelectedValue
+        });
     }
 
-    const voteAgain = (btnElem) => {
-        btn = btnElem;
+    const voteAgain = (btn) => {
+
         btn.textContent = "Vote Now";
-        btn.disabled= true;
+        btn.disabled = true;
+
         btn.parentElement
             .querySelectorAll("label").forEach((elem) => {
-               elem.style.display = "flex";
+                elem.style.display = "flex";
             })
-        voting = true;
+        setVotingBoxState({
+            ...votingBoxState,
+            voting: true
+        });
     }
-    const disapearLikeDislikeBtns = () => {
-        console.log(btn);
+    const disapearLikeDislikeBtns = (btn) => {
         btn.textContent = "Vote Again?";
-        voting = false;
-        console.log(voting);
         btn.parentElement
             .querySelectorAll("label").forEach((elem) => {
                 elem.style.display = "none";
-            })
-        
+            });
+
+        setVotingBoxState({
+            ...votingBoxState,
+            voting: false
+        });
     }
 
 
@@ -79,12 +93,12 @@ const VotingBox = (props) => {
                         <label className="like" htmlFor="like">
                             <img src="https://firebasestorage.googleapis.com/v0/b/juli-v-zemoga-app.appspot.com/o/like.svg?alt=media&token=89fdc956-4def-4cba-a24f-9f91e1d579cd" alt="" />
                             <input onClick={(e) => {
-                                enableButton(e);
-                                likeSelected = true;
+                                enableButton(e, true);
+                               
                             }}
                                 onFocus={(e) => {
-                                    enableButton(e);
-                                    likeSelected = true;
+                                    enableButton(e, true);
+                                    
                                 }} id="like" type="radio" name="opinion" value="Like" />
                         </label>
 
@@ -92,15 +106,13 @@ const VotingBox = (props) => {
 
                             <img src="https://firebasestorage.googleapis.com/v0/b/juli-v-zemoga-app.appspot.com/o/like.svg?alt=media&token=89fdc956-4def-4cba-a24f-9f91e1d579cd" alt="" />
                             <input onClick={(e) => {
-                                enableButton(e);
-                                likeSelected = false;
+                                enableButton(e, false);
                             }}
                                 onFocus={(e) => {
-                                    enableButton(e);
-                                    likeSelected = false;
+                                    enableButton(e, false);
                                 }} id="dislike" type="radio" name="opinion" value="Dislike" />
                         </label>
-                        <button disabled={!btnSelected} type="submit" onClick={(e) => {
+                        <button disabled={!votingBoxState.btnSelected} type="submit" onClick={(e) => {
                             vote(e);
                         }} className="small" value="Vote now">Vote Now</button>
                     </div>

@@ -33,9 +33,7 @@ function App() {
   const updateVotingBox = (docId, object) =>{
     firebase.firestore()
     .collection("celebritities")
-    .doc(object.id).update(object).then(()=>{
-      console.log("escrito");
-    });
+    .doc(object.id).update(object);
     }
 
   const appState = useAppState();
