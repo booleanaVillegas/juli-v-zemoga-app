@@ -3,6 +3,7 @@ import VotingBox from "./../../components/VotingBox/VotingBox";
 import "./OtherVoting.scss"
 
 const OtherVoting = (props) => {
+
     return (
     <section className="other-celebrities">
     <article className="other-voting__msj">
@@ -17,7 +18,7 @@ const OtherVoting = (props) => {
     <h2 className="other-voting__title">Votes</h2>
     <ul className="celebrities-container">
       {props.celebrities.map((celebrity) => {
-        return <VotingBox key={celebrity.id} 
+        return <VotingBox updateVotes={(id,obj)=>props.updateVotes(id,obj)} key={celebrity.id} 
         character={celebrity}
         />
       })}

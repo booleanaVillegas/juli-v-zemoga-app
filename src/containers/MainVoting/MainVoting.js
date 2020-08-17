@@ -10,7 +10,8 @@ const MainVoting = (props) => {
                     <h1>{props.celebrity.name}?</h1>
                     <p>{props.celebrity.description}</p>
                     <a style={{ color: 'white', fontWeight: 700 }} href="wikipedia.com">See more information</a>
-                    <label htmlFor="opinion">What is your veredict?</label>
+                    <br/>
+                    <h3>What is your veredict?</h3>
                 </div>
                 <div className="like-dislike-containter">
                     
